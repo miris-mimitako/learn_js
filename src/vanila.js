@@ -1,3 +1,5 @@
+
+// #3-4
 const onClickAdd = () =>{
     const textEl = document.querySelector(".add-text");
 
