@@ -1,13 +1,16 @@
+import { ColoredMessage } from "./components/ColoredMessage";
+
 export const App = () => {
     const onClickButton =() => {
         alert();
     };
 
     // CSS object
-    const contentStyle = {
-        color: "blue",
-        fontSize: "20px" // Cannot use font-size 
-    };
+
+    // const contentPinkStyle = {
+    //     color: "pink",
+    //     fontSize: "20px"
+    // };
 
     // return null;
     return (
@@ -15,8 +18,15 @@ export const App = () => {
         <>
             {console.log("test")}
             <h1 style = {{color: "red"}}>Hello world</h1>
-            <p style={contentStyle} >Are you Okey?</p>
+            <ColoredMessage color="blue" message = "Are you okey?" />
+            <ColoredMessage color="green" message = "Are you well?" />
+
+            <ColoredMessage color ="blue">Are you well?</ColoredMessage>
+            <ColoredMessage color ="green">I am good.</ColoredMessage>
+
+
             <button onClick = {onClickButton}>button</button>
+
         </>
         // you can use empty tag for error escaping.
         // you can insert JavaScript after return.
