@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import { App } from "./App";
+import { CssModules } from "./CssModules";
 
 
 // exported
@@ -16,4 +16,4 @@ import { App } from "./App";
 
 // };  
 
-ReactDOM.render(<App />, document.getElementById("root")); // <App /> は関数の呼び出しを指定している。
+ReactDOM.render(<CssModules />, document.getElementById("root")); // <App /> は関数の呼び出しを指定している。
