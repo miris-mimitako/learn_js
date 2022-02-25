@@ -1,16 +1,22 @@
+import { useEffect } from "react";
+import { useState} from "react"
 import { ColoredMessage } from "./components/ColoredMessage";
 
+
+
 export const App = () => {
+
+    console.log("rendering");
+    //defined state
+    const [num, setNum] = useState(0);
+    
     const onClickButton =() => {
-        alert();
+        setNum((prev) => prev += 1) ;
     };
 
-    // CSS object
-
-    // const contentPinkStyle = {
-    //     color: "pink",
-    //     fontSize: "20px"
-    // };
+    useEffect(() => {
+        alert();
+    },[num]);
 
     // return null;
     return (
@@ -26,7 +32,7 @@ export const App = () => {
 
 
             <button onClick = {onClickButton}>button</button>
-
+            <p>{num} </p>
         </>
         // you can use empty tag for error escaping.
         // you can insert JavaScript after return.
