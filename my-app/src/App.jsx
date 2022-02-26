@@ -1,30 +1,49 @@
-import {useCallback, useState,memo} from "react";
-import { Child1} from "./components/Child1";
-import { Child4} from "./components/Child4";
 
-export const App = memo(() => {
-    console.log ("App rendering");
+import {useContext} from "react";
+import {Card} from "./components/Card";
+import { AdminFlagContext } from "./components/providers/AdminFlagProvider";
 
-    const [num, setNum] = useState(0);
+export const App = () => {
+    const {isAdmin, setIsAdmin} = useContext(AdminFlagContext);
 
-    const onClickButton = () => {
-        setNum(num + 1);
-    };
-    
-    const onClickReset = useCallback(() => {
-        setNum(0);
-    },[]);
+    const onClickSwitch = () => setIsAdmin(!isAdmin);
 
     return (
-        <>
-            <button onClick = {onClickButton} >Button</button>
-            <p>{num}</p>
-            <Child1 onClickReset ={onClickReset} />
-            <Child4 />
-        </>
-    );
+        <div>
+            {isAdmin ? <span>管理者です</span>:<span>管理者以外です。</span> }
+            <button onClick={onClickSwitch}>切り替え</button>
+            <Card isAdmin={isAdmin} />
+        </div>
+    )
+};
 
-});
+
+// import {useCallback, useState,memo} from "react";
+// import { Child1} from "./components/Child1";
+// import { Child4} from "./components/Child4";
+
+// export const App = memo(() => {
+//     console.log ("App rendering");
+
+//     const [num, setNum] = useState(0);
+
+//     const onClickButton = () => {
+//         setNum(num + 1);
+//     };
+//     const onClickReset = useCallback(() => {
+//         setNum(0);
+//     },[]);
+
+//     return (
+//         <>
+//             <button onClick = {onClickButton} >Button</button>
+//             <p>{num}</p>
+//             <Child1 onClickReset ={onClickReset} />
+//             <Child4 />
+//         </>
+//     );
+
+// });
 
 
 
@@ -50,7 +69,7 @@ export const App = memo(() => {
 //     console.log("rendering");
 //     //defined state
 //     const [num, setNum] = useState(0);
-    
+
 //     const onClickButton =() => {
 //         setNum((prev) => prev += 1) ;
 //     };
